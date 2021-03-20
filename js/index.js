@@ -24,11 +24,15 @@ const messageSystem = {
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         const messageWall = document.getElementById("output");
         messageWall.innerHTML = '';
         data.forEach(function (value, index) {
           const message = document.createElement("div");
           message.className = "message";
+          if(value.handle == "Benoît Dossoineh"){
+            message.classList.add("me");
+          }
           message.innerHTML = `<span class="by">${value.handle} </span>
           <span class="on">${value.created_at} </span>
           <p>${value.message}</p>`;
@@ -54,6 +58,7 @@ const userSystem = {
 
   checkLogin() {
     const token = this.getToken();
+    console.log(token);
     if (token != null) {
       this.token = token;
       display.removeLogin();
@@ -64,6 +69,7 @@ const userSystem = {
 
   logout() {
     localStorage.removeItem("token");
+    window.location.reload();
   },
 
   login(email, password) {
@@ -99,6 +105,8 @@ const display = {
     formLogin.addEventListener("submit", this.loginHandler);
     const formMessage = document.getElementById("messageForm");
     formMessage.addEventListener("submit", this.messageHandler);
+    const logoutButton = document.getElementById("logoutBtn");
+    logoutButton.addEventListener("click", this.logoutHandler);
   },
 
   loginHandler(e) {
@@ -112,6 +120,10 @@ const display = {
     e.preventDefault();
     const message = document.getElementById("messageField").value;
     messageSystem.sendMessage(message);
+  },
+
+  logoutHandler(e) {
+    userSystem.logout();
   },
 
   removeLogin() {
