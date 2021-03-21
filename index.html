@@ -11,7 +11,9 @@
   <main>
     <div id="container">
 
-      <div id="options"><button type="button" id="logoutBtn">Log out</button></div>
+      <div id="options"><button type="button" id="logoutBtn">Log out</button>
+        <button type="button" id="changeBtn">Change username</button>
+        <button type="button" id="changePasBtn">Change password</button></div>
 
       <div id="loginWindow">
         <form id="loginForm">
@@ -21,13 +23,29 @@
         </form>
       </div>
 
+      <div id="userChangeWindow">
+        <form id="userChangeForm">
+          <input type="text" id="newHandle" placeholder="New username" />
+          <input type="password" id="passwordChangeHandle" placeholder="Password" />
+          <input type="submit" value="Change username" />
+        </form>
+      </div>
+
+      <div id="pswChangeWindow">
+        <form id="pswChangeForm">
+          <input type="password" id="oldPsw" placeholder="Old password" />
+          <input type="text" id="newPsw" placeholder="New password" />
+          <input type="submit" value="Change password" />
+        </form>
+      </div>
+
       <div id="output">
 
       </div>
 
       <div id="userInput">
         <form id="messageForm">
-          <input type="text" name="userMessage" id="messageField" placeholder="type your message" />
+          <input type="text" name="userMessage" id="messageField" placeholder="type your message" autocomplete="off" />
           <input type="submit" value="sturen" id="messageSubmit" />
         </form>
       </div>
