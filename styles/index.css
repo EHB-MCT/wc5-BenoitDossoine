@@ -8,9 +8,11 @@ body {
   padding: 0;
   color: #0d0d0d;
 }
-body{
+
+body {
   background-color: #cbdefc;
 }
+
 main {
   margin: auto;
   display: flex;
@@ -30,7 +32,7 @@ main {
   margin: 10px 0;
 }
 
-.me{
+.me {
   background-color: #de7467;
   align-self: flex-end;
 }
@@ -38,14 +40,15 @@ main {
 .by {
   width: 50%;
   float: left;
-  color: #aaa;
+  color: #000;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .on {
   width: 50%;
   float: left;
-  color: #aaa;
+  color: #000;
   margin-bottom: 5px;
   text-align: right;
 }
@@ -59,7 +62,7 @@ main {
   margin-top: 20px;
 }
 
-#logoutBtn {
+#options>button{
   background-color: #de7467;
   padding: 0.5em 1em;
   border: none;
@@ -71,7 +74,7 @@ input[type=text],
 input[type=email],
 input[type=password] {
   height: 40px;
-  color: #aaa;
+  color: #000000;
   padding: 10px;
   box-sizing: border-box;
 }
@@ -80,7 +83,7 @@ input[type=submit] {
   height: 40px;
 }
 
-#loginWindow {
+.overlay {
   background: rgba(0, 0, 0, 0.6);
   width: 100vw;
   height: 100vh;
@@ -89,7 +92,7 @@ input[type=submit] {
   left: 0px;
 }
 
-#loginForm {
+.overlayForm {
   position: fixed;
   width: 300px;
   left: calc(50% - 150px);
@@ -98,6 +101,14 @@ input[type=submit] {
   padding: 10px;
   border: 1px solid #000;
   box-sizing: border-box;
+}
+
+#userChangeWindow {
+  display: none;
+}
+
+#pswChangeWindow {
+  display: none;
 }
 
 #userInput {
@@ -117,12 +128,10 @@ input[type=submit] {
 
 }
 
-#loginWindow>form>input {
+.overlay>form>input {
   width: calc(100% - 20px);
   margin: 10px;
 }
-
-
 
 @media only screen and (min-width: 700px) {
   body {

@@ -13,26 +13,27 @@
 
       <div id="options"><button type="button" id="logoutBtn">Log out</button>
         <button type="button" id="changeBtn">Change username</button>
-        <button type="button" id="changePasBtn">Change password</button></div>
+        <button type="button" id="changePasBtn">Change password</button>
+      </div>
 
-      <div id="loginWindow">
-        <form id="loginForm">
+      <div id="loginWindow" class="overlay">
+        <form id="loginForm" class="overlayForm">
           <input type="email" id="emailField" placeholder="email" />
           <input type="password" id="passwordField" placeholder="password" />
           <input type="submit" value="inloggen" />
         </form>
       </div>
 
-      <div id="userChangeWindow">
-        <form id="userChangeForm">
+      <div id="userChangeWindow" class="overlay">
+        <form id="userChangeForm" class="overlayForm">
           <input type="text" id="newHandle" placeholder="New username" />
           <input type="password" id="passwordChangeHandle" placeholder="Password" />
           <input type="submit" value="Change username" />
         </form>
       </div>
 
-      <div id="pswChangeWindow">
-        <form id="pswChangeForm">
+      <div id="pswChangeWindow" class="overlay">
+        <form id="pswChangeForm" class="overlayForm">
           <input type="password" id="oldPsw" placeholder="Old password" />
           <input type="text" id="newPsw" placeholder="New password" />
           <input type="submit" value="Change password" />
