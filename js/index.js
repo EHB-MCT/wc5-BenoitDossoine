@@ -30,7 +30,7 @@ const messageSystem = {
         data.forEach(function (value, index) {
           const message = document.createElement("div");
           message.className = "message";
-          if(value.handle == "Benoît Dossoineh"){
+          if(value.handle == userSystem.handle){
             message.classList.add("me");
           }
           message.innerHTML = `<span class="by">${value.handle} </span>
@@ -46,21 +46,32 @@ const messageSystem = {
 
 const userSystem = {
   token: "",
+  handle: "",
   loggedIn: false,
 
   saveToken() {
     localStorage.setItem("token", this.token);
   },
 
+  saveHandle(){
+    localStorage.setItem("handle", this.handle);
+  },
+
   getToken() {
     return localStorage.getItem("token");
   },
 
+  getHandle(){
+    return localStorage.getItem("handle");
+  },
+
   checkLogin() {
     const token = this.getToken();
+    const handle = this.getHandle();
     console.log(token);
     if (token != null) {
       this.token = token;
+      this.handle = handle;
       display.removeLogin();
       messageSystem.fetchMessages();
     }
@@ -85,10 +96,16 @@ const userSystem = {
       })
       .then(response => response.json())
       .then(data => {
-        this.token = data.token;
-        this.saveToken();
-        display.removeLogin();
-        messageSystem.fetchMessages();
+        if(data.token != undefined){
+          this.token = data.token;
+          this.handle = data.handle;
+          this.saveToken();
+          this.saveHandle();
+          display.removeLogin();
+          messageSystem.fetchMessages();
+        } else {
+          alert("Wrong credentials!");
+        }
       });
 
     // https://thecrew.cc/api/user/login.php POST

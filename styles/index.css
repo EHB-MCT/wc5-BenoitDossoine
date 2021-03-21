@@ -25,8 +25,9 @@ main {
   padding: 10px;
   display: block;
   background-color: #f6f6f8;
+  border-radius: 10px;
   box-sizing: border-box;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .me{
@@ -56,6 +57,14 @@ main {
   /* border: 1px solid #000; */
   padding: 10px;
   margin-top: 20px;
+}
+
+#logoutBtn {
+  background-color: #de7467;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
 }
 
 input[type=text],
